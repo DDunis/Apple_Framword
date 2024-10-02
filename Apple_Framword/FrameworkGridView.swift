@@ -16,16 +16,10 @@ struct FrameworkGridView: View {
     
     var body: some View {
         LazyVGrid(columns: columns){
-            FrameworkTitleView(name: "App Clip", imageName: "app-clip")
-            FrameworkTitleView(name: "App Clip", imageName: "app-clip")
-            FrameworkTitleView(name: "App Clip", imageName: "app-clip")
-            FrameworkTitleView(name: "App Clip", imageName: "app-clip")
-            FrameworkTitleView(name: "App Clip", imageName: "app-clip")
-            FrameworkTitleView(name: "App Clip", imageName: "app-clip")
-            FrameworkTitleView(name: "App Clip", imageName: "app-clip")
-
+            ForEach(MockData.frameworks, id: \.id) {
+                framework in FrameworkTitleView(name: framework.name, imageName: framework.imageName)
+            }
         }
-      
     }
 }
 
